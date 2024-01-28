@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LoveTest</string>
+    <string name="main_title">너의 사랑 유형을\n알아보자!</string>
+    <string name="Question">골라보세요</string>
+</resources>
