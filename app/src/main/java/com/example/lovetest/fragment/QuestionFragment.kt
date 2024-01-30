@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.lovetest.R
-
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +21,7 @@ import com.example.lovetest.R
 class QuestionFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     lateinit var navController: NavController
+    lateinit var btn_next:ImageView  //의도대로 수정해 주세요.
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +34,10 @@ class QuestionFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController= Navigation.findNavController(view)
+        btn_next = view.findViewById<ImageView>(R.id.btn_next)
+
         btn_next.setOnClickListener(this)
+
 
     }
 

@@ -7,6 +7,8 @@
     android:background="@drawable/background"
     tools:context=".fragment.MainFragment">
 
+<!--    <layout xmlns:android="http://schemas.android.com/apk/res/android"></layout>-->
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
