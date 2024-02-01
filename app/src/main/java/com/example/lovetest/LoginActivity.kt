@@ -1,88 +1,74 @@
-package com.example.lovetest;
+package com.example.lovetest
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.app.Activity
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-public class LoginActivity extends AppCompatActivity {
-    private EditText login_email, login_password;
-    private Button login_button, join_button;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_login );
-
-        login_email = findViewById( R.id.login_email );
-        login_password = findViewById( R.id.login_password );
-
-        join_button = findViewById( R.id.join_button );
-        join_button.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent( LoginActivity.this, MainActivity.class );
-                startActivity( intent );
-            }
-        });
+class LoginActivity : AppCompatActivity() {
+    private var auth : FirebaseAuth? = null
+    private var loginButton: Button?=null
+    private var idEditText: EditText?=null
+    private var passwordEditText: EditText?=null
 
 
-        login_button = findViewById( R.id.login_button );
-        login_button.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String UserEmail = login_email.getText().toString();
-                String UserPwd = login_password.getText().toString();
 
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject( response );
-                            boolean success = jsonObject.getBoolean( "success" );
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+        auth = Firebase.auth
 
-                            if(success) {//로그인 성공시
 
-                                String UserEmail = jsonObject.getString( "UserEmail" );
-                                String UserPwd = jsonObject.getString( "UserPwd" );
-                                String UserName = jsonObject.getString( "UserName" );
 
-                                Toast.makeText( getApplicationContext(), String.format("%s님 환영합니다.", UserName), Toast.LENGTH_SHORT ).show();
-                                Intent intent = new Intent( LoginActivity.this, MainActivity.class );
 
-                                intent.putExtra( "UserEmail", UserEmail );
-                                intent.putExtra( "UserPwd", UserPwd );
-                                intent.putExtra( "UserName", UserName );
 
-                                startActivity( intent );
+        // 로그인 버튼
+        loginButton?.setOnClickListener {
+            signIn(idEditText?.text.toString(), passwordEditText?.text.toString())
+        }
+    }
 
-                            } else {//로그인 실패시
-                                Toast.makeText( getApplicationContext(), "로그인에 실패하셨습니다.", Toast.LENGTH_SHORT ).show();
-                                return;
-                            }
+    // 로그아웃하지 않을 시 자동 로그인 , 회원가입시 바로 로그인 됨
+    public override fun onStart() {
+        super.onStart()
+        moveMainPage(auth?.currentUser)
+    }
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+    // 로그인
+    private fun signIn(email: String, password: String) {
+
+        if (email.isNotEmpty() && password.isNotEmpty()) {
+            auth?.signInWithEmailAndPassword(email, password)
+                ?.addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(
+                            baseContext, "로그인에 성공 하였습니다.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        moveMainPage(auth?.currentUser)
+                    } else {
+                        Toast.makeText(
+                            baseContext, "로그인에 실패 하였습니다.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-                };
-                LoginRequest loginRequest = new LoginRequest( UserEmail, UserPwd, responseListener );
-                RequestQueue queue = Volley.newRequestQueue( LoginActivity.this );
-                queue.add( loginRequest );
+                }
+        }
+    }
 
-            }
-        });
+
+    // 유저정보 넘겨주고 메인 액티비티 호출
+    fun moveMainPage(user: FirebaseUser?){
+        if( user!= null){
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
     }
 }

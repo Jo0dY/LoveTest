@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseUser
 
 class SignInActivity : AppCompatActivity() {
 
+
     private var _binding: SignInActivityBinding? = null
     private val binding get() = _binding!!
 
