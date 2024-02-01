@@ -7,37 +7,40 @@
     tools:context=".LoginActivity">
 
     <EditText
-        android:id="@+id/idEditText"
+        android:id="@+id/email_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="215dp"
+        android:layout_marginTop="312dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="ID"
+        android:hint="아이디"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/password_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="비밀번호"
         android:inputType="textPassword"
-        android:hint="Password"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/email_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="24dp"
         android:text="로그인"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/password_edittext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

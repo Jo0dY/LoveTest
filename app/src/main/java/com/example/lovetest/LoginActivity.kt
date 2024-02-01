@@ -1,6 +1,6 @@
 package com.example.lovetest
 
-import android.app.Activity
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,66 +9,50 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
-class LoginActivity : AppCompatActivity() {
-    private var auth : FirebaseAuth? = null
-    private var loginButton: Button?=null
-    private var idEditText: EditText?=null
-    private var passwordEditText: EditText?=null
 
 
 
+class LoginActivity : AppCompatActivity() {
+    var auth : FirebaseAuth? = null
+    private var email_login_button: Button?=null
+    private var email_edittext: EditText?=null
+    private var password_edittext: EditText?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        auth = Firebase.auth
+        auth = FirebaseAuth.getInstance()
 
 
-
-
-
-        // 로그인 버튼
-        loginButton?.setOnClickListener {
-            signIn(idEditText?.text.toString(), passwordEditText?.text.toString())
+        email_login_button?.setOnClickListener {
+            signinAndSignup()
         }
     }
-
-    // 로그아웃하지 않을 시 자동 로그인 , 회원가입시 바로 로그인 됨
-    public override fun onStart() {
-        super.onStart()
-        moveMainPage(auth?.currentUser)
+    fun signinAndSignup() {
+        signinEmail()
     }
 
-    // 로그인
-    private fun signIn(email: String, password: String) {
-
-        if (email.isNotEmpty() && password.isNotEmpty()) {
-            auth?.signInWithEmailAndPassword(email, password)
-                ?.addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(
-                            baseContext, "로그인에 성공 하였습니다.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        moveMainPage(auth?.currentUser)
-                    } else {
-                        Toast.makeText(
-                            baseContext, "로그인에 실패 하였습니다.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+    fun signinEmail() {
+        auth?.signInWithEmailAndPassword(email_edittext?.text.toString(),password_edittext?.text.toString())
+            ?.addOnCompleteListener {
+                    task ->
+                if(task.isSuccessful) {
+                    // Login, 아이디와 패스워드가 맞았을 때
+                    moveMainPage(task.result?.user)
+                } else {
+                    // Show the error message, 아이디와 패스워드가 틀렸을 때
+                    Toast.makeText(this, task.exception?.message, Toast.LENGTH_LONG).show()
                 }
+            }
+    }
+    // 로그인이 성공하면 다음 페이지로 넘어가는 함수
+    fun moveMainPage(user:FirebaseUser?) {
+        // 파이어베이스 유저 상태가 있을 경우 다음 페이지로 넘어갈 수 있음
+        if(user != null) {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
 
-    // 유저정보 넘겨주고 메인 액티비티 호출
-    fun moveMainPage(user: FirebaseUser?){
-        if( user!= null){
-            startActivity(Intent(this,MainActivity::class.java))
-            finish()
-        }
-    }
+
 }
