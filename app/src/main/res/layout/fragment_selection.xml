@@ -43,7 +43,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="짜장이"
+            android:text="지붕이"
             android:layout_marginBottom="10dp"
             android:background="@drawable/selection"/>
 
@@ -53,7 +53,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="지붕이"
+            android:text="짜장이"
             android:layout_marginBottom="10dp"
             android:background="@drawable/selection"/>
 
