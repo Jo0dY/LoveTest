@@ -19,6 +19,9 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
@@ -28,18 +31,6 @@
         <action
             android:id="@+id/action_questionFragment_to_selectionFragment"
             app:destination="@id/selectionFragment" />
-        <action
-            android:id="@+id/action_questionFragment_to_selectionFragment2"
-            app:destination="@id/selectionFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/resultFragment"
-        android:name="com.example.lovetest.fragment.ResultFragment"
-        android:label="fragment_result"
-        tools:layout="@layout/fragment_result" >
-        <action
-            android:id="@+id/action_resultFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectionFragment"
@@ -47,10 +38,57 @@
         android:label="fragment_selection"
         tools:layout="@layout/fragment_selection" >
         <action
+            android:id="@+id/action_selectionFragment_to_resultFragment4"
+            app:destination="@id/resultFragment4" />
+        <action
             android:id="@+id/action_selectionFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
         <action
             android:id="@+id/action_selectionFragment_to_resultFragment2"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/resultFragment2" />
+        <action
+            android:id="@+id/action_selectionFragment_to_resultFragment3"
+            app:destination="@id/resultFragment3" />
     </fragment>
+    <fragment
+        android:id="@+id/resultFragment4"
+        android:name="com.example.lovetest.fragment.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment4_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.lovetest.fragment.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment4_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment2"
+        android:name="com.example.lovetest.fragment.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment4_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment3"
+        android:name="com.example.lovetest.fragment.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment4_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.lovetest.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>

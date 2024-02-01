@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/result"
     tools:context=".fragment.ResultFragment">
 
     <TextView
         android:id="@+id/tv_sub"
-        android:layout_width="260dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
+        android:layout_width="332dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="당신은 모든일에 쉽게 포기하는 사람입니다."
+        android:text="우동이를 선택한 당신 따뜻한 성격의 소유자시군요!\n추운 날씨 우동국물이 사람을 녹여주듯 당신도 주변사람들의 마음을 녹여주는 마음 따뜻한 사람입니다."
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_main" />
 
@@ -26,11 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:fontFamily="sans-serif-black"
-        android:text="너는 잘포기하는 사람이야"
-        android:textColor="@color/white"
+        android:text="따뜻한 마음씨의 소유자"
+        android:textColor="@color/black"
         android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.386"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +41,7 @@
         android:layout_marginTop="260dp"
         android:src="@drawable/home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_sub" />
 

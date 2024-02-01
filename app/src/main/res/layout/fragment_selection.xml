@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".fragment.SelectionFragment">
 
     <LinearLayout
@@ -21,7 +22,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="1"
+            android:text="우동이"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/selection"/>
@@ -32,7 +33,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="2"
+            android:text="슴슥이"
             android:layout_marginBottom="10dp"
             android:background="@drawable/selection"/>
 
@@ -42,7 +43,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="3"
+            android:text="짜장이"
             android:layout_marginBottom="10dp"
             android:background="@drawable/selection"/>
 
@@ -52,7 +53,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="4"
+            android:text="지붕이"
             android:layout_marginBottom="10dp"
             android:background="@drawable/selection"/>
 
@@ -65,10 +66,11 @@
         android:id="@+id/btn_back"
         android:layout_width="392dp"
         android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
         android:src="@drawable/previous"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="19dp" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

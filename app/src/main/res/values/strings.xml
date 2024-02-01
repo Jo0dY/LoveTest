@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">LoveTest</string>
-    <string name="main_title">너의 사랑 유형을\n알아보자!</string>
-    <string name="Question">골라보세요</string>
+    <string name="main_title">나는 어떤사람일까? </string>
+    <string name="Question">인사관에서 수업을 듣고 도서관계단으로 \n이동하던 당신앞에 너무작고 귀엽고 소중한 \n고양이가 앉아서 그루밍 중이다.
+        \n다음 중 어떤고양이인가?\n
+
+</string>
 </resources>
