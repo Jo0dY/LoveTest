@@ -23,6 +23,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="우동이"
+            android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/selection"/>
@@ -34,6 +35,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="슴슥이"
+            android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/selection"/>
 
@@ -44,6 +46,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="지붕이"
+            android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/selection"/>
 
@@ -54,6 +57,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="짜장이"
+            android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/selection"/>
 

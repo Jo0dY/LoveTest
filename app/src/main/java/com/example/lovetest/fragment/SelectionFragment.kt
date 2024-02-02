@@ -59,7 +59,7 @@ class SelectionFragment : Fragment(), View.OnClickListener {
     }
     fun navigateWithIndex(index : Int){
         val bundle= bundleOf("index" to index)
-        navController.navigate(R.id.action_selectionFragment_to_resultFragment,bundle)
+        navController.navigate(R.id.action_selectionFragment_to_resultFragment4,bundle)
 
     }
 }

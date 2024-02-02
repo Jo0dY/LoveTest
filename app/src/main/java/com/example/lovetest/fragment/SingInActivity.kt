@@ -1,8 +1,10 @@
 package com.example.lovetest.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lovetest.LoginActivity
 import com.example.lovetest.databinding.SignInActivityBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -39,6 +41,8 @@ class SignInActivity : AppCompatActivity() {
                     Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
                     val user = auth.currentUser
                     updateUI(user)
+                    val intent= Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
                 } else {
                     Toast.makeText(this, "회원가입 실패", Toast.LENGTH_SHORT).show()
                     updateUI(null)
